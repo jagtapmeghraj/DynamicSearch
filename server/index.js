@@ -13,16 +13,17 @@ const db = mysql.createConnection({
 
 app.use(cors());
 
-app.get('/', (req,res)=>{
+app.get('/:val', (req,res)=>{
     
-    console.log("request: " + req);
-    const sqlInsert = "SELECT * FROM ENTITY"
-    db.query(sqlInsert, (err,result)=>{
+    console.log("val:"+val);
+    var val = req.params.val +'%';
+    const sqlInsert = 'SELECT * FROM ENTITY WHERE VALUE LIKE ?' 
+    console.log("query"+sqlInsert);
+    //select * from mytable where name like "Mr.%"
+    db.query(sqlInsert, [val], (err,result)=>{
         res.send(result);
     })
 });
-
-
 
 app.listen(3002, ()=>{
 
