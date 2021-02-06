@@ -3,7 +3,9 @@ const app = express()
 const mysql = require('mysql')
 const cors = require('cors')
 
-
+//database credentials
+//database name : searchdb
+//sample searchdb row :  {id: 1, value : "apple"}
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',

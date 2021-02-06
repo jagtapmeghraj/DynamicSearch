@@ -14,7 +14,8 @@ class ReactSelectExample extends Component {
   fetchData = (inputValue, callback) => {
     setTimeout(() => {
       fetch(
-        "http://localhost:3002/" + inputValue,
+        //server url
+        "http://localhost:3002/" + inputValue, 
         {
           method: "GET",
         }
